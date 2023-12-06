@@ -27,7 +27,7 @@ export class EquipmentService {
   updateEquipment(equipment:Equipment):Observable<Equipment>{
     return this.http.put<Equipment>(`${this.url}/equipments/${equipment._id}`,equipment)
   }
-  deleteEquipmentById(id:string){
+  deleteEquipmentById(id?:string){
     return this.http.delete<Equipment>(`${this.url}/equipments/${id}`);
   }
 
