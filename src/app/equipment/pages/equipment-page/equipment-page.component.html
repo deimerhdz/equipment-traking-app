@@ -1,0 +1,35 @@
+<div class="col-md-12">
+    
+    <h3>
+        Equipment list
+    </h3>
+    <a class="btn btn-primary" [routerLink]="['/dashboard/equipments/new-equipment']" routerLinkActive="active" >Agregar reporte</a>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#id</th>
+            <th scope="col">Photo</th>
+            <th scope="col">name</th>
+            <th scope="col">Description</th>
+            <th scope="col">category</th>
+            
+            <th scope="col">Stock</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let equipment of equipments">
+            <td>{{equipment._id}}</td>
+            <td><img class="card-img" [src]="equipment.photo" [alt]="equipment.name"></td>
+            <td>{{equipment.name}}</td>
+            <td>{{equipment.description}}</td>
+            <td>{{equipment.category}}</td>
+            <td>{{equipment.stock}}</td>
+            <td>
+              <button class="btn btn-warning" (click)="editEquipment(equipment._id)">Editar</button>&nbsp;
+              <button class="btn btn-danger" (click)="deletEequipment(equipment._id)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>

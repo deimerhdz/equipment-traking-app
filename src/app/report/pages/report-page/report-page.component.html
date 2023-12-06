@@ -1,0 +1,33 @@
+
+<div class="col-md-12">
+    
+    <h3>
+        Report list
+    </h3>
+    <a class="btn btn-primary" [routerLink]="['/dashboard/reports/new-report']" routerLinkActive="active" >Agregar reporte</a>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#id</th>
+            <th scope="col">Description</th>
+            <th scope="col">Equipment</th>
+            <th scope="col">user</th>
+            <th scope="col">Created at</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let report of reports">
+            <td>{{report._id}}</td>
+            <td>{{report.description}}</td>
+            <td>{{report.equipmentId.name}}</td>
+            <td>{{report.userId.name}}</td>
+            <td>{{report.creationDate | date}}</td>
+            <td>
+              <button class="btn btn-warning" (click)="editReport(report._id)">Editar</button>&nbsp;
+              <button class="btn btn-danger" (click)="deleteReport(report._id)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>

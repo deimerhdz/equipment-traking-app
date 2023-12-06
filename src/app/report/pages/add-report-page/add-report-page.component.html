@@ -1,0 +1,18 @@
+<form [formGroup]="reportForm" (submit)="save()" class="col-md-6">
+    <h3>New report</h3>
+    <div class="mb-3">
+        <label for="">Description</label>
+        <input formControlName="description"type="text" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label for="">Equipment</label>
+        <select formControlName="equipmentId" id="" class="form-select">
+            <option [value]="equipment._id" *ngFor="let equipment of equipments">{{equipment.name}}</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <button class="btn btn-success" [disabled]="reportForm.invalid">Agregar</button>
+
+    </div>
+</form>
